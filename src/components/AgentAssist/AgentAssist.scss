@@ -1,0 +1,31 @@
+/* src/AgentAssist.css */
+.agent-assist {
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+}
+
+.status {
+  margin-right: 15px;
+}
+
+.status-button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.timer {
+  margin-left: 15px;
+}
