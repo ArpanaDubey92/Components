@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import './PhoneDuration.css';
+import './PhoneDiscon.css';
 
 /**
  * PhoneDiscon Component
@@ -8,13 +8,13 @@ import './PhoneDuration.css';
  * @param {object} props
  * @param {string} props.number - The phone number to display
  */
-const PhoneDuration = ({ number }) => {
+const PhoneDiscon = ({ number }) => {
     return (
         <div className="phone-number-container">
-           {/* <span className="phone-icon">📞</span>*/}
-            <span className="phone-number">{number}</span>
+           { <span className="phone-icon">📞</span>}
+          {/*  <span className="phone-number">{number}</span>*/}
         </div>
     );
 };
 
-export default PhoneDuration;
+export default PhoneDiscon;

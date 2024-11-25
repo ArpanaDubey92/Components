@@ -11,22 +11,25 @@ import './button.css';
  * @param {string} props.label
  * @param {function} props.onClick
  */
-export const Button = ({
-                         primary = false,
-                         backgroundColor = null,
-                         size = 'medium',
-                         label,
-                         ...props
-                       }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  return (
-      <button
-          type="button"
-          className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-          style={backgroundColor && { backgroundColor }}
-          {...props}
-      >
-        {label}
-      </button>
-  );
+
+export const Button = ({ label, primary, backgroundColor, size, onClick }) => {
+    const classNames = [
+        'storybook-button',
+        primary ? 'storybook-button--primary' : 'storybook-button--secondary',
+        size ? `storybook-button--${size}` : 'storybook-button--medium'
+    ].join(' ');
+
+    const style = { backgroundColor };
+
+    return (
+        <button
+            className={classNames}
+            style={style}
+            onClick={onClick}
+            aria-label={label}  // Ensuring aria-label is set correctly
+        >
+            {label}
+        </button>
+    );
 };
+

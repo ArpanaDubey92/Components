@@ -1,15 +1,37 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import './PauseIcon.css';
-import pauseButton from '../TopBar/pause-button.png'; // Default pause button image
-import playButton from '../TopBar/telephone.png';  // Alternate image (e.g., play button)
+import pauseButton from '../../../stories/assets/accessibility.svg'; // Ensure these paths are correct
+import playButton from '../../../stories/assets/discord.svg';
+function PauseIcon() {
+    const images = [pauseButton, playButton];
+    const [imageIndex, setImageIndex] = useState(0);
 
-const PauseIcon = ({ size = 24, onClick }) => {
-    const [iconSrc, setIconSrc] = useState(pauseButton); // Initial state with pause button
+    const checkboxToggle = () => {
+        setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
+
+    return (
+        <>
+            <img
+                className='loginCheckbox'
+                src={images[imageIndex]}
+                alt='checkbox'
+                onClick={checkboxToggle}
+            />
+        </>
+    );
+}
+/*const PauseIcon = ({ size = 24, onClick }) => {
+    const [iconSrc, setIconSrc] = useState(pauseButton);
 
     const handleClick = () => {
-        setIconSrc((prevSrc) => (prevSrc === pauseButton ? playButton : pauseButton)); // Toggle image
-        if (onClick) onClick(); // Trigger the click event if provided
+        setIconSrc((prevSrc) => {
+            const newSrc = prevSrc === pauseButton ? playButton : pauseButton;
+            console.log('Icon Source Changing From:', prevSrc, 'To:', newSrc);
+            return newSrc;
+        });
+        if (onClick) onClick();
     };
 
     return (
@@ -22,6 +44,6 @@ const PauseIcon = ({ size = 24, onClick }) => {
             onClick={handleClick}
         />
     );
-};
+};*/
 
 export default PauseIcon;

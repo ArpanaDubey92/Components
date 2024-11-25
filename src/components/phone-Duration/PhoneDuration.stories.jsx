@@ -1,26 +1,26 @@
 import { h } from 'preact';
-import PhoneNumber from './PhoneNumber';
+import PhoneDuration from './PhoneDuration';
 
 export default {
-    title: 'Components/PhoneNumber',
-    component: PhoneNumber,
+    title: 'Components/PhoneDiscon',
+    component: PhoneDuration,
     argTypes: {
         number: {
             control: 'text',
             description: 'Phone number to display',
-            defaultValue: '+1 (330) 440-2829',
+            defaultValue: '00:24 min',
         },
     },
 };
 
-const Template = (args) => <PhoneNumber {...args} />;
+const Template = (args) => <PhoneDuration {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-    number: '+1 (330) 440-2829',
+export const Duration = Template.bind({});
+Duration.args = {
+    number: '00:24 min',
 };
 
-export const CustomNumber = Template.bind({});
-CustomNumber.args = {
+export const Time = Template.bind({});
+Time.args = {
     number: '+91-9876543210',
 };

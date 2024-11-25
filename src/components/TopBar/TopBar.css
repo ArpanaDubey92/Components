@@ -5,49 +5,71 @@
   justify-content: space-between;
   background-color: #222;
   color: #fff;
-  padding: 8px 16px;
+  padding: 8px 12px;
   font-family: Arial, sans-serif;
+  border-radius: 4px;
 }
 
 .status-section {
-  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .status-button {
   background-color: #333;
   color: #fff;
   border: none;
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 4px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }
 
 .arrow-down {
   margin-left: 4px;
+  font-size: 10px;
 }
 
 .icon-section {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 8px; /* Space between icons */
 }
 
 .icon {
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.info-section {
-  text-align: right;
+  width: 18px; /* Icon width */
+  height: 18px; /* Icon height */
+  font-size: 18px;
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: center;
+  cursor: pointer;
+}
+.vertical-line {
+  width: 1px;               /* Line thickness */
+  height: 18px;             /* Line height */
+  background-color: #ccc;   /* Line color */
+  display: inline-block;
+  margin: 0 8px;            /* Add horizontal margin if needed */
+  vertical-align: middle;   /* Aligns the line vertically in the middle */
+}
+.info-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
 }
 
 .phone-number {
-  font-size: 16px;
+  font-size: 14px;
+  color: #fff;
 }
 
 .timer {
-  font-size: 16px;
+  font-size: 14px;
   color: #aaa;
 }

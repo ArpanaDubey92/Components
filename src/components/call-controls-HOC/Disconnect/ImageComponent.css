@@ -1,0 +1,6 @@
+/* ImageComponent.css */
+.image-component {
+    display: block;
+    object-fit: cover; /* Ensures the image is not stretched or distorted */
+    margin: 0 auto;
+}

@@ -2,12 +2,12 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     background-color: transparent; /* Make the background transparent by default */
     border-radius: 4px; /* Optional: Adds rounded corners */
     width: 40px; /* Set the width of the icon */
     height: 40px; /* Set the height of the icon */
 }
-
 .pause-icon:hover {
-    background-color: rgba(14, 14, 14, 0.1); /* Optional: Adds a hover effect */
+    background-color: rgba(11, 10, 10, 0.1); /* Optional: Adds a hover effect */
 }

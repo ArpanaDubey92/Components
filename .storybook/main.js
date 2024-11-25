@@ -8,6 +8,8 @@ const config = {
     "@storybook/addon-interactions",
   ],
 
+    staticDirs: ['public'], // Serve static files from the `public` folder
+
   framework: {
     name: "@storybook/preact-webpack5",
     options: {},

@@ -1,34 +1,35 @@
 import { h } from 'preact';
-import { render, screen, fireEvent } from '@testing-library/preact';
-import '@testing-library/jest-dom'; // For additional matchers like .toBeInTheDocument()
-import PhoneIcon from './PhoneIcon'; // Adjust the path as necessary
+import { render, fireEvent, screen } from '@testing-library/preact';
+import '@testing-library/jest-dom'; // Provides additional matchers for testing
+import PauseIconComponent from './PauseIconComponent'; // Ensure the path to the component is correct
+import pauseButton from '../../../stories/assets/accessibility.svg'; // Ensure paths are correct
+import playButton from '../../../stories/assets/discord.svg';
 
-describe('PhoneIcon Component', () => {
-    const mockClickHandler = jest.fn();
-
-    test('renders the phone icon with the correct size', () => {
-        render(<PhoneIcon size={64} onClick={mockClickHandler} />);
-
-        const icon = screen.getByRole('img', { name: /phone icon/i });
-        expect(icon).toBeInTheDocument();
-        expect(icon).toHaveAttribute('src'); // Ensures the src attribute is present
-        expect(icon).toHaveAttribute('width', '64');
-        expect(icon).toHaveAttribute('height', '64');
+describe('PauseIconComponent', () => {
+    test('renders the image with the correct initial src', () => {
+        render(<PauseIconComponent />);
+        const img = screen.getByAltText('checkbox');
+        expect(img).toBeInTheDocument();
+        expect(img).toHaveAttribute('src', pauseButton);
     });
 
-    test('calls the onClick handler when clicked', () => {
-        render(<PhoneIcon size={64} onClick={mockClickHandler} />);
+    test('toggles the image src when clicked', () => {
+        render(<PauseIconComponent />);
+        const img = screen.getByAltText('checkbox');
 
-        const icon = screen.getByRole('img', { name: /phone icon/i });
-        fireEvent.click(icon);
+        // Initial image source should be `pauseButton`
+        expect(img).toHaveAttribute('src', pauseButton);
 
-        expect(mockClickHandler).toHaveBeenCalledTimes(1);
-    });
+        // Click the image to toggle
+        fireEvent.click(img);
 
-    test('renders with a custom alt text if provided', () => {
-        render(<PhoneIcon size={32} onClick={mockClickHandler} />);
+        // The source should change to `playButton`
+        expect(img).toHaveAttribute('src', playButton);
 
-        const icon = screen.getByRole('img', { name: /phone icon/i });
-        expect(icon).toHaveAttribute('alt', 'Phone Icon');
+        // Click the image again to toggle back
+        fireEvent.click(img);
+
+        // The source should revert to `pauseButton`
+        expect(img).toHaveAttribute('src', pauseButton);
     });
 });
